@@ -1,8 +1,3 @@
-\usetikzlibrary{arrows.meta}
-\tikzset{
-	myarrow/.style={-{Triangle[length=5mm,width=2mm]}}
-}
-
 \newcommand\pontvastagsag{1 mm} %nevezetes pontok vastagsága
 
 %körfolyamat rajza
@@ -10,61 +5,61 @@
 	\centering
 	\begin{tikzpicture}
 		\newcommand\COR{1.2}; %korrekciós érték az ábra késsöbbi méreteinek változtatásához
-		\draw[ultra thick] (0, 0) -- (4*\COR, 0); %legfelső vonal
-		\draw[myarrow, ultra thick] (4*\COR, 0) -- (4*\COR, -1.5*\COR);
-		\draw[ultra thick] (4*\COR, 0*\COR) -- (4*\COR, -2*\COR); %turbinaba tartó vonal
+		\draw[thick] (0, 0) -- (4*\COR, 0); %legfelső vonal
+		\draw[->, thick] (4*\COR, 0) -- (4*\COR, -1.5*\COR);
+		\draw[thick] (4*\COR, 0*\COR) -- (4*\COR, -2*\COR); %turbinaba tartó vonal
 		%turbina
-		\draw[ultra thick] (4*\COR, -2*\COR) -- (5*\COR, -2.5*\COR); %turbina
-		\draw[ultra thick] (5*\COR, -2.5*\COR) -- (5*\COR, -1*\COR);
-		\draw[ultra thick] (5*\COR, -1*\COR) -- (4*\COR, -1.5*\COR); %turbina vége
-		\draw[ultra thick] (5*\COR, -2.5*\COR) -- (5*\COR, -4*\COR); %kondenzátorba tartó vonal
+		\draw[thick] (4*\COR, -2*\COR) -- (5*\COR, -2.5*\COR); %turbina
+		\draw[thick] (5*\COR, -2.5*\COR) -- (5*\COR, -1*\COR);
+		\draw[thick] (5*\COR, -1*\COR) -- (4*\COR, -1.5*\COR); %turbina vége
+		\draw[thick] (5*\COR, -2.5*\COR) -- (5*\COR, -4*\COR); %kondenzátorba tartó vonal
 		%turbina T betűje
 		\node[thick] at (4.5*\COR, -1.75*\COR) {T};
 		
 		%kondenzátor
-		\draw[ultra thick] (5*\COR, -4.5*\COR) circle (0.5cm*\COR); %kondenzátor kör
-		\draw[ultra thick] (5.25*\COR, -4.5*\COR) -- (5*\COR,-4.35*\COR); %kondenzátor cikk-cakk
-		\draw[ultra thick] (5*\COR, -4.35*\COR) -- (5.7*\COR,-4.1*\COR);
-		\draw[ultra thick] (5.25*\COR, -4.5*\COR) -- (5*\COR, -4.65*\COR);
-		\draw[ultra thick] (5*\COR, -4.65*\COR) -- (5.7*\COR, -4.9*\COR); 
+		\draw[thick] (5*\COR, -4.5*\COR) circle (0.5cm*\COR); %kondenzátor kör
+		\draw[thick] (5.25*\COR, -4.5*\COR) -- (5*\COR,-4.35*\COR); %kondenzátor cikk-cakk
+		\draw[->, thick] (5*\COR, -4.35*\COR) -- (5.9*\COR,-4.1*\COR);
+		\draw[thick] (5.25*\COR, -4.5*\COR) -- (5*\COR, -4.65*\COR);
+		\draw[thick] (5*\COR, -4.65*\COR) -- (5.8*\COR, -4.9*\COR); 
 		%kondenzátor vége
-		\draw[ultra thick] (5*\COR, -5*\COR) -- (5*\COR, -6*\COR);
-		\draw[ultra thick] (5*\COR, -6*\COR) -- (0*\COR, -6*\COR);
-		\draw[ultra thick] (0*\COR, -6*\COR) -- (0*\COR, -4*\COR);
+		\draw[thick] (5*\COR, -5*\COR) -- (5*\COR, -6*\COR);
+		\draw[thick] (5*\COR, -6*\COR) -- (0*\COR, -6*\COR);
+		\draw[thick] (0*\COR, -6*\COR) -- (0*\COR, -4*\COR);
 		%kazán
-		\draw[ultra thick] (-0.5*\COR, -4*\COR) rectangle (0.5*\COR, -2*\COR);
-		\draw[ultra thick] (0*\COR, -2*\COR) -- (0*\COR, 0*\COR);
+		\draw[thick] (-0.5*\COR, -4*\COR) rectangle (0.5*\COR, -2*\COR);
+		\draw[thick] (0*\COR, -2*\COR) -- (0*\COR, 0*\COR);
 		%kazán K betűje
 		\node at (0*\COR, -3*\COR) {K};
 		%gép
-		\draw[ultra thick] (5*\COR, -1.75*\COR) -- (6.5*\COR, -1.75*\COR);
-		\draw[ultra thick] (7*\COR, -1.75*\COR) circle (0.5cm*\COR);
-		\draw[ultra thick] (7*\COR, -1.25*\COR) -- (7*\COR, 0*\COR);
-		\draw[ultra thick] (6.6*\COR, -1*\COR) -- (7.4*\COR, -0.75*\COR);
-		\draw[ultra thick] (6.6*\COR, -0.75*\COR) -- (7.4*\COR, -0.5*\COR);
-		\draw[ultra thick] (6.6*\COR, -0.5*\COR) -- (7.4*\COR, -0.25*\COR);
+		\draw[thick] (5*\COR, -1.75*\COR) -- (6.5*\COR, -1.75*\COR);
+		\draw[thick] (7*\COR, -1.75*\COR) circle (0.5cm*\COR);
+		\draw[thick] (7*\COR, -1.25*\COR) -- (7*\COR, 0*\COR);
+		\draw[thick] (6.6*\COR, -1*\COR) -- (7.4*\COR, -0.75*\COR);
+		\draw[thick] (6.6*\COR, -0.75*\COR) -- (7.4*\COR, -0.5*\COR);
+		\draw[thick] (6.6*\COR, -0.5*\COR) -- (7.4*\COR, -0.25*\COR);
 		%gép betűje
 		\node at (7*\COR, -1.75*\COR) {G};
 		%pontok megrajzolása
 		%1-es pont
-		\draw[ultra thick, fill = black] (0*\COR, -4.5*\COR) circle (\pontvastagsag*\COR);
+		\draw[thick, fill = black] (0*\COR, -4.5*\COR) circle (\pontvastagsag*\COR);
 		\node[circle, draw, inner sep = 1mm, thick] at (-0.5*\COR, -4.5*\COR) {1};
 		%2-es pont
 		\node[circle, draw, inner sep = 1mm, thick] at (1*\COR, -3*\COR) {2};
 		%3-as pont
-		\draw[ultra thick, fill = black] (0*\COR, -1.5*\COR) circle (\pontvastagsag*\COR);
+		\draw[thick, fill = black] (0*\COR, -1.5*\COR) circle (\pontvastagsag*\COR);
 		\node[circle, draw, inner sep = 1mm, thick] at (-0.5*\COR, -1.5*\COR) {3};
 		%4-es pont
-		\draw[ultra thick, fill = black] (5*\COR, -3.2*\COR) circle (\pontvastagsag*\COR);
+		\draw[thick, fill = black] (5*\COR, -3.2*\COR) circle (\pontvastagsag*\COR);
 		\node[circle, draw, inner sep = 1mm, thick] at (5.5*\COR, -3.2*\COR) {4};
 		%nyomaték megrajzolása
 		\draw [->, thick] (5.5*\COR, -2.1*\COR) arc [radius = 0.45*\COR, start angle = -130, end angle = 130];
 		%q_EL bejelölése
-		\draw[myarrow] (5.7*\COR, -4.5*\COR) -- (7*\COR, -4.5*\COR) node [midway, below] {$q_{EL}$};
+		\draw[->] (5.7*\COR, -4.5*\COR) -- (7*\COR, -4.5*\COR) node [midway, below] {$q_{EL}$};
 		%q_BE bejelölése
-		\draw[myarrow] (-2*\COR, -3*\COR) -- (-0.7*\COR, -3*\COR) node [midway, above] {$q_{BE}$};
+		\draw[->] (-2*\COR, -3*\COR) -- (-0.7*\COR, -3*\COR) node [midway, above] {$q_{BE}$};
 		%munka jelölése
-		\node at (5.9*\COR, -1*\COR) {$\omega$};
+		\node at (5.9*\COR, -1*\COR) {$w$};
 		 
 	\end{tikzpicture}
 	\caption{A túlhevítő nélküli körfolyamat ábrája}
@@ -76,8 +71,8 @@
 	\begin{tikzpicture}
 		\newcommand\kicsinyites{0.7};
 		% Tengelyek
-		\draw[myarrow] ({0}, {0}) -- ({14*\kicsinyites}, {0}) node[anchor=base east, shift={(0,-0.5)}]{$s$};
-		\draw[myarrow] ({0}, {0}) -- ({0}, {9*\kicsinyites}) node[anchor=north east]{$T$};
+		\draw[->] ({0}, {0}) -- ({14*\kicsinyites}, {0}) node[anchor=base east, shift={(0,-0.5)}]{$s$};
+		\draw[->] ({0}, {0}) -- ({0}, {9*\kicsinyites}) node[anchor=north east]{$T$};
 		
 		\begin{axis}[
 			axis lines = middle,
@@ -89,24 +84,24 @@
 			width=15cm*\kicsinyites, height=10cm*\kicsinyites, xmin=0, ymin=0
 			]
 			
-			\addplot [thick] table {./I8FMUH/tsah.txt} node[pos = 0.00001] {1};
+			\addplot [thick] table {./I8FMUH/tsah.txt};
 			\addplot [thick] table {./I8FMUH/tsfh.txt};
 			
 			%2-3 vonal nyillal
-			\addplot[myarrow, ultra thick] coordinates {(2.947, 266.85) (4.7, 266.85)};
-			\addplot[ultra thick] coordinates {(2.947, 266.85) (5.95, 266.85)};
+			\addplot[->, thick] coordinates {(2.947, 266.85) (4.7, 266.85)};
+			\addplot[thick] coordinates {(2.947, 266.85) (5.95, 266.85)};
 			
 			%3-4 vonal nyillal
-			\addplot[ultra thick] coordinates {(5.95, 266.85) (5.95, 56.85)};
-			\addplot[myarrow, ultra thick] coordinates {(5.95, 266.85) (5.95, 140)};
+			\addplot[thick] coordinates {(5.95, 266.85) (5.95, 56.85)};
+			\addplot[->, thick] coordinates {(5.95, 266.85) (5.95, 140)};
 			
 			%4-1 vonal nyillal
-			\addplot[ultra thick] coordinates {(5.95, 56.85) (0.79, 56.85)};
-			\addplot[myarrow, ultra thick] coordinates {(5.95, 56.85) (3.2, 56.85)};
+			\addplot[thick] coordinates {(5.95, 56.85) (0.79, 56.85)};
+			\addplot[->, thick] coordinates {(5.95, 56.85) (3.2, 56.85)};
 			
 			%1-2 vonal nyillal
-			\addplot[myarrow, ultra thick] coordinates {(2.059, 171.850) (2.108, 176.850)};
-			\addplot [ultra thick] table {./I8FMUH/egykettogorbe.txt};
+			\addplot[->, thick] coordinates {(2.059, 171.850) (2.108, 176.850)};
+			\addplot [thick] table {./I8FMUH/egykettogorbe.txt};
 			
 			%pontozás
 			\draw[fill] (axis cs:0.790, 56.85) circle [radius = \pontvastagsag];
@@ -137,7 +132,7 @@
 	\end{equation}
 \paragraph{Munka számítása:}
 	\begin{equation}
-		w_t = w_{t3,4} = h3-h4
+		w_t = w_{t_{3,4}} = h3-h4
 	\end{equation}
 \paragraph{Termikus hatásfok:}
 	\begin{equation}
