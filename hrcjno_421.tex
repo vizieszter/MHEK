@@ -1,0 +1,133 @@
+
+% A feladat címe automatikus számozás nélkül
+\section*{4.21.feladat: Túlhevítést alkalmazó Rankine-Clausius-körfolyamat,a tápszivattyú hatásának figyelembe vételével}
+
+% Hozzáadás a tartalomjegyzékhez azonos címmel
+\addcontentsline{toc}{section}{4.21. feladat: Túlhevítést alkalmazó Rankine-Clausius-körfolyamat, a tápszivattyú hatásának figyelembe vételével}
+
+% Táblázat a szerző adataival
+\begin{tabular}{ | p{5cm} | p{14cm} | } 
+	\hline
+	Grőber Adél HRCJNO\\ 
+	\hline
+	Vegyészmérnök alapszak\\ 
+	\hline
+	2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+% A feladat szövege
+\noindent Rajzolja le a túlhevítést alkalmazó Rankine–Clausius-körfolyamat kapcsolási vázlatát, a körfolyamatot T-s diagramban, figyelembe véve a tápszivattyú hatását! Jelölje be a munkát ($w$) és a kondenzátorban elvont hőt ($q_K$)! Ha mindegyik nevezetes pontban ismertek az állapotjelzők, akkor hogyan számítható a bevitt hő ($q_{BE}$), a munka ($w$), a kondenzátorban elvont hő ($q_K$) és a termikus hatásfok ($\eta_T$)?
+
+
+% A feladat megoldása
+\begin{center}
+
+\begin{itemize}
+	\item 	hőerőművek vízgőz körfolyamatát írja le a Rankine-Clausius-körfolyamat
+	\item a körfolyamat elvégzéséhet szükséges 4 folyamat:
+	\begin{itemize}
+		\item állandó nyomású hőközlés a kazánban
+		\item adiabatikus kiterjedés/expanzió a hőerőgépben (turbina)
+		\item állandó nyomáson történő hőelvonás, illetve lecsapódás/kondenzáció a kondenzátorban
+		\item a víz adiabatikus visszaszivattyúzása a kazánba
+		\
+	\end{itemize}
+\end{itemize}
+\vspace{1 cm}	
+$w$: hasznos munka  $q_{EL}$:  veszteség 	$w_{t}$: turbina munkája 		$w_{sz}$: szivattyú munkája
+\end{center}
+
+\begin{equation}
+	w=q_{BE}-q_{EL}
+\end{equation}
+\begin{equation}
+	q_{BE}=w+q_{EL}
+\end{equation}		
+\begin{equation}
+	q_{BE}=q_{1-4}=q_{4}-h_1 (p= \textrm{áll}.)
+\end{equation}
+\begin{equation}
+	q_{EL}=-q_{5-6}=h_5-h_6
+\end{equation}
+\begin{equation}
+w_{t}=h_4-h_5  (\delta \ wq_{t}=-dh)
+\end{equation}
+\begin{equation}
+w_{sz}=h_1-h_6\approx 0,01…0,03 w_{t}
+\end{equation}
+\begin{equation}
+\eta_T{} = \dfrac{w_{t}-w_{sz}}{q_{BE}} \approx 35\%…45\%
+\end{equation}
+
+\begin{figure}[!ht]
+\centering
+\label{figure:sm}
+\begin{tikzpicture}
+%alap ábra
+	\draw(0,0) -- (8,0) -- (8,-4) -- (10,-6) -- (10, -7.5);
+%alja
+	\draw(10,-9.5) -- (10,-10) -- (0, -10) -- (0, -9.5);
+%összekötés	
+	\draw (0, -2.1) -- (0,0);
+%tápszivattyú	
+	\draw(0, -8.5) circle(1);
+%összekötés		
+	\draw(0, -7.5) -- (0, -7);
+%kazán	
+	\draw(-1, -7) -- (1, -7) -- (1, -4) -- (-1, -4) -- (-1, -7);
+%túlhevítő vízgőz	
+	\draw (0, -3.4) -- (-0.5, -3.25) -- (0.6, -3) -- (-0.6, -2.75) -- (0.6, -2.5) -- (-0.5, -2.25) -- (0, -2.1);
+%összekötés		
+	\draw (0, -4) -- (0, -3.4);
+%kondenzátor
+\draw(10, -8.5) circle(1);
+%túlhevítő vízgőz 2	
+\draw (12, -9) -- (9.6, -8.75) -- (10.2, -8.5) -- (9.6, -8.25) -- (12, -8);
+
+	
+\end{tikzpicture}
+\caption{A körfolyamatot végrehajtó berendezések vázlata}
+\end{figure}
+
+%ÁBRA 2
+\begin{figure}[h]
+	\centering
+	\label{figure:vgtsd}
+	\begin{tikzpicture}
+	
+	% Rács és vágómaszk
+	\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);;
+	\clip (-1.5, -1) rectangle (14.5, 11);
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+			width=16cm, height=12cm,
+			xmin=0, xmax=10.8,
+			ymin=0, ymax=475, 
+			axis lines = middle,
+	axis line style={->},
+	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$T \left(\si{\degreeCelsius}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={1, 2, 3, 4, 5, 6, 7, 8, 9},
+	ytick={100, 200, 300, 400}
+	]
+	
+	\addplot[thick] table {./tshf.txt};
+	
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Rankine-Clausius-körfolyamat T-s diagramja, túlhevítést alkalmazva, a tápszivattyú hatásának figyelembe vételével}
+\end{figure}
+
+% Oldaltörés
+\pagebreak
