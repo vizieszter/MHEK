@@ -1,5 +1,6 @@
 \newcommand\pontvastagsag{1 mm} %nevezetes pontok vastagsága
 
+\section*{Túlhevítés nélküli Rankine-Clausius-körfolyamat}
 %körfolyamat rajza
 \begin{figure}[h]
 	\centering
@@ -84,8 +85,7 @@
 			width=15cm*\kicsinyites, height=10cm*\kicsinyites, xmin=0, ymin=0
 			]
 			
-			\addplot [thick] table {./I8FMUH/tsah.txt};
-			\addplot [thick] table {./I8FMUH/tsfh.txt};
+			\addplot [thick] table {./I8FMUH/ts.txt};
 			
 			%2-3 vonal nyillal
 			\addplot[->, thick] coordinates {(2.947, 266.85) (4.7, 266.85)};
@@ -122,19 +122,19 @@
 	\caption{A túlhevítő nélküli körfolyamat diagramja}
 %egyenletek beillesztése
 \end{figure}
-\paragraph{Bevezetett hő számítása:}
+\paragraph{Bevezetett hő számítása}
 	\begin{equation}
 		q_{BE} = h_3 - h_1
 	\end{equation}
-\paragraph{Kondenzátorban elvont hő:}
+\paragraph{Kondenzátorban elvont hő}
 	\begin{equation}
-		q_{EL} = - q_{4,1} = h4 - h1
+		q_{EL} = - q_{4,1} = h_4 - h_1
 	\end{equation}
-\paragraph{Munka számítása:}
+\paragraph{Munka számítása}
 	\begin{equation}
-		w_t = w_{t_{3,4}} = h3-h4
+		w_t = w_{t_{3,4}} = h_3-h_4
 	\end{equation}
-\paragraph{Termikus hatásfok:}
+\paragraph{Termikus hatásfok}
 	\begin{equation}
 		\eta_T = \frac{w}{q_{BE}} = \frac{w_t}{q_{BE}}
 	\end{equation}
