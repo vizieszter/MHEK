@@ -66,18 +66,7 @@ w_{sz}=h_1-h_6\approx 0,01…0,03 w_{t}
 \label{figure:sm}
 \begin{tikzpicture}
 %alap ábra
-	\draw(0,0) -- (8,0) -- (8,-4) -- (10,-5) -- (10, -7.5);
-%turbina
-	\draw(8,-3) -- (10, -2) -- (10, -5);
-	\draw(10, -3.5) -- (12, -3.5);
-	\draw(13, -3.5) circle(1);
-	\draw(13, -2.5) -- (13, 1);
-	\draw(12.5, -2) -- (13.5, -1.5);
-	\draw(12.5, -1.25) -- (13.5, -0.75);
-	\draw(12.5, -0.5) -- (13.5, 0);
-	\begin{scope}[yscale=-1,xscale=1]
-			\draw[->] (10.5, 3.25) {[rotate=-240] arc [radius=0.5, start angle=80, end angle=380 ]};
-	\end{scope}
+	\draw(0,0) -- (8,0) -- (8,-4) -- (10,-6) -- (10, -7.5);
 %alja
 	\draw(10,-9.5) -- (10,-10) -- (0, -10) -- (0, -9.5);
 %összekötés	
@@ -94,15 +83,12 @@ w_{sz}=h_1-h_6\approx 0,01…0,03 w_{t}
 	\draw (0, -4) -- (0, -3.4);
 %kondenzátor
 \draw(10, -8.5) circle(1);
+%túlhevítő vízgőz 2	
 \draw (12, -9) -- (9.6, -8.75) -- (10.2, -8.5) -- (9.6, -8.25) -- (12, -8);
-
-\node[anchor=west] at (10, -10) {$S$};
-
-
 
 	
 \end{tikzpicture}
-\caption{Kapcsolási rajz}
+\caption{A körfolyamatot végrehajtó berendezések vázlata}
 \end{figure}
 
 %ÁBRA 2
@@ -112,7 +98,9 @@ w_{sz}=h_1-h_6\approx 0,01…0,03 w_{t}
 	\begin{tikzpicture}
 	
 	% Rács és vágómaszk
-	\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);;
+	\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);
+	\draw[->, semithick] (3, 1) -- (4, 6);
+	;
 	\clip (-1.5, -1) rectangle (14.5, 11);
 	
 	% A tengelykeresztet az axis környezet hozza létre
@@ -139,21 +127,6 @@ w_{sz}=h_1-h_6\approx 0,01…0,03 w_{t}
 	\addplot[thick] table {./tshf.txt};
 	
 	\end{axis}
-
-	% Folyamat
-	\draw[->, ultra thick] (0.5, 2) -- (3.44, 5);
-	\node[anchor=north] at (3.24, 5.5) {$2.$};
-	\draw[->, ultra thick] (3.44, 5) -- (8.34, 5);
-	\node[anchor=north] at (8.34, 4.7) {$3.$};
-	\draw[->, ultra thick] (8.34, 5) -- (10, 9);
-	\node[anchor=north] at (10.4, 9) {$4.$};
-	\draw[->, ultra thick] (10, 9) -- (10, 1);
-	\node[anchor=north] at (10.3, 0.9) {$5.$};
-	\draw[->, ultra thick] (10, 1.1) -- (0.9, 1.1);
-	\node[anchor=north] at (0.9, 0.8) {$6.$};
-	\draw[->, ultra thick] (0.9, 1.1) -- (0.5, 2);
-	\node[anchor=north] at (0.4, 2.5) {$1.$};
-	
 	\end{tikzpicture}
 	\caption{Rankine-Clausius-körfolyamat T-s diagramja, túlhevítést alkalmazva, a tápszivattyú hatásának figyelembe vételével}
 \end{figure}
