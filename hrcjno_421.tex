@@ -66,7 +66,8 @@ w_{sz}=h_1-h_6\approx 0,01…0,03 w_{t}
 \label{figure:sm}
 \begin{tikzpicture}
 %alap ábra
-	\draw(0,0) -- (8,0) -- (8,-4) -- (10,-5) -- (10, -7.5);
+\draw[->](0,0) -- (4,0) ;
+\draw (4,0) -- (8,0) -- (8,-4) -- (10,-5) -- (10, -7.5);
 %turbina
 	\draw(8,-3) -- (10, -2) -- (10, -5);
 	\draw(10, -3.5) -- (12, -3.5);
@@ -79,7 +80,9 @@ w_{sz}=h_1-h_6\approx 0,01…0,03 w_{t}
 			\draw[->] (10.5, 3.25) {[rotate=-240] arc [radius=0.5, start angle=80, end angle=380 ]};
 	\end{scope}
 %alja
-	\draw(10,-9.5) -- (10,-10) -- (0, -10) -- (0, -9.5);
+\draw(10,-9.5) -- (10,-10);
+\draw [->] (10,-10) -- (5, -10);
+\draw (5, -10) -- (0, -10) -- (0, -9.5);
 %összekötés	
 	\draw (0, -2.1) -- (0,0);
 %tápszivattyú	
@@ -97,6 +100,13 @@ w_{sz}=h_1-h_6\approx 0,01…0,03 w_{t}
 \draw (12, -9) -- (9.6, -8.75) -- (10.2, -8.5) -- (9.6, -8.25) -- (12, -8);
 
 \node[anchor=west] at (10, -10) {$S$};
+\node[anchor = south] at (9.125, -3.75) {$T$};
+\node[anchor = mid] at (13, -3.5) {$G$};
+\node[anchor = east] at (-1, -2.5) {$TH$};
+\node[anchor = east] at (0.3, -5.5) {$K$};
+\node[anchor = east] at (-1.5, -8.5) {$SZ$};
+
+\node[anchor = mid] at (0, -8.5) {$\bigtriangleup$};
 
 
 
