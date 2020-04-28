@@ -3,7 +3,7 @@
 % ================
 \usepackage{tikz} 
 \usepackage{tikz-3dplot}
-\usetikzlibrary{arrows.meta, automata, bending, calc, decorations.markings, fit, graphs, intersections, patterns, positioning, scopes, shapes, shapes.geometric, shapes.multipart, trees}
+\usetikzlibrary{arrows.meta, automata, bending, calc, decorations.markings, fit, graphs, intersections, patterns, patterns.meta, positioning, scopes, shapes, shapes.geometric, shapes.multipart, trees}
 % bending: a nyílfejek "elnyomják" az íveket, ez a könyvtár helyre teszi...
 
 \usepackage{pgfplots}
@@ -421,7 +421,7 @@
 
 % Körvonal írásjel körül
 \newcommand{\pgfcircled}[1]{ %
-	\tikz[baseline=(char.base)]{\node[shape=circle, draw, inner sep=0pt] (char) {#1}} %
+	\tikz[baseline=(char.base)]{\node[shape=circle, draw, inner sep=2pt] (char) {#1}} %
 	}
 
 % Pont rajzolása
