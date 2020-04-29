@@ -1,0 +1,252 @@
+\section*{6/24.feladat: Kompresszoros hűtőgép működése}
+
+% Hozzáadás a tartalomjegyzékhez azonos címmel
+\addcontentsline{toc}{section}{6/24.feladat: Kompresszoros hűtőgép működése}
+
+% Táblázat a szerző adataival
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Szerző & Hevesi Tamás (J3TV3W) \\ 
+	\hline
+	Szak & Anyagmérnök Bsc. \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+% A feladat szövege
+\noindent Mutassa be a kompresszoros ($NH_3$) hűtőgép működését expanziós gépes és fojtószelepes esetben! Rajzolja fel a hűtőkörfolyamatot T-s diagramban és a hűtőgép kapcsolási vázlatát! Ha mindegyik nevezetes pontban ismertek az állapotjelzők, akkor hogyan számítható a hűtőtérből elvont hő ($q_H$), a kompresszor sűrítési munkája $w_K$, a körfolyamatból elvezetett/a kondenzátorban leadott hő ($q_K$), az expanzós gép álal szolgáltatott munka ($w_T$) vagy az elvont hő csökkenése ($Δq_H$), és a fajlagos hűtőteljesítmény ($\varepsilon$)?
+
+% A feladat megoldása
+\subsubsection{Kompresszoros hűtőgép expanziós géppel(turbinával)}
+
+\begin{figure}[ht]
+	\begin{subfigure}[b]{0.5\textwidth}
+	\centering
+	\begin{tikzpicture} %Kapcsolási rajz(a)
+	\draw[step=1cm,ultra thick] (0,0) to (1.4,0) to (1.65,0.4) to (1.9,-0.4) to (2.15,0.4) to (2.4,-0.4) to (2.65,0.4) to (2.9,-0.4) to (3.15,0.4) to (3.4,-0.4) to (3.65,0) to (5,0);
+	\draw[step=1cm,ultra thick,->] (5,0) to (5,2);
+	\draw[step=1cm,ultra thick] (5,2) to (5,4) to (4,3.5) to (4,2.5) to (5,2);
+	\node[anchor=north] at (4.5, 3.25) {$K$}; 
+	\node[anchor=north] at (-0.5, 3.25) {$T$};
+	\draw[step=1cm,ultra thick,->] (4,3.5) to (4,5.5);
+	\draw[step=1cm,ultra thick] (-1,5.5) to (1.25,5.5) to (1.5,5.9) to (1.75,5.1) to (2,5.9) to (2.25,5.1) to (2.5,5.9) to (2.75,5.1) to (3,5.9) to (3.25,5.1) to (3.5,5.5) to (4,5.5);
+	\draw[step=1cm,ultra thick,->] (-1,5.5) to (-1,3.5);
+	\draw[step=1cm,ultra thick] (-1,3.5) to (-1,2.5) to (0,2) to (0,0);
+	\draw[step=1cm,ultra thick] (0,2) to (0,4) to (-1,3.5);
+	\draw[step=1cm,ultra thick,->] (0,3) to (4,3);
+	\node[anchor=north] at (1.5, 3.5) {$w_{T}$};
+	\draw[ultra thick] (6.5, 3) circle (0.5);
+	\node[anchor=north] at (6.5, 3.25) {$M$};
+	\draw[step=1cm,ultra thick,->] (6,3) to (5,3);
+	\node[anchor=north] at (5.5, 3.5) {$w_{K}$};
+	\draw[step=1cm,ultra thick] (6.5,5) to (6.5,3.5);
+	\draw[step=1cm,very thick] (6,4.3) to (7,4.6);
+	\draw[step=1c,ultra thick] (1, -1) rectangle (4.05, 1);
+	\draw[step=1c,ultra thick] (1.25, -0.75) rectangle (3.8, 0.75);
+	\draw[step=1cm,ultra thick,->] (2.25,-1.6) to (2.25,-0.15);
+	\node[anchor=north] at (2.55, -1.2) {$q_{H}$};
+	\draw[step=1cm,ultra thick,->] (2.25,6) to (2.25,7.2);
+	\node[anchor=north] at (2.6, 6.65) {$q_{K}$};
+	\node[xshift={0mm}, yshift={-4mm}] at (0, 0) {$\Large\textcircled{\normalsize 4}$};	
+	\node[xshift={0mm}, yshift={-4mm}] at (5, 0) {$\Large\textcircled{\normalsize 1}$};
+	\node[xshift={0mm}, yshift={3mm}] at (4, 5.5) {$\Large\textcircled{\normalsize 2}$};
+	\node[xshift={0mm}, yshift={3mm}] at (-1, 5.5) {$\Large\textcircled{\normalsize 3}$};	
+	\fill[pattern=north east lines] (1, -1) rectangle (4.05, -0.75);
+	\fill[pattern=north east lines] (1, -1) rectangle (1.25, 0.75);
+	\fill[pattern=north east lines] (1, 0.75) rectangle (4.05, 1);
+	\fill[pattern=north east lines] (3.8, -0.75) rectangle (4.05, 0.75);
+	\end{tikzpicture}
+	\caption{Kapcsolási vázlat}
+\end{subfigure}
+\begin{subfigure}[b]{0.5\textwidth}
+	\centering
+	\begin{tikzpicture}
+
+
+% T-s diagram (a)
+\begin{axis}[
+width=8cm, height=8cm,
+xmin=0, xmax=9,
+ymin=195, ymax=475, 
+axis lines = middle,
+axis line style={->},
+xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+xlabel style={
+	at=(current axis.right of origin), 
+	anchor=north east
+}, 
+ylabel=$T \left(\si{\kelvin}\right)$, 
+ylabel style={
+	at=(current axis.above origin), 
+	anchor=north east
+},
+xtick=\empty,
+ytick=\empty,
+]
+
+	\addplot[thick] table {./j3tv3w/nh3fh.txt};
+	\addplot[ultra thick, dashed, gray] table {./j3tv3w/nh3ib1.txt};
+	\node[anchor=north east] at (axis cs:6.608, 450) {$p_K$};
+	\addplot[ultra thick, dashed, gray] table {./j3tv3w/nh3ib2.txt}; 
+	\node[anchor=north east] at (axis cs:7.920, 450) {$p_H$};
+		\addplot[ultra thick, color=black,->=gray] coordinates {(5.64,239.562)(5.64,311.848)};
+		\addplot[ultra thick, color=black,->=gray] coordinates {(5.64,311.848)(2.096,311.848)};
+		\addplot[ultra thick, color=black,->=gray] coordinates {(2.096,311.848)(2.096,239.563)};
+		\addplot[ultra thick, color=black,->=gray] coordinates {(2.096,239.563)(5.64,239.563)};
+\node[anchor=north west] at (axis cs: 5.64, 239.562) {\pgfcircled{$1$}};
+\filldraw[black, fill=black] (axis cs: 5.64, 239.562) circle (1mm);
+\node[anchor=south west] at (axis cs: 5.64, 311.848) {\pgfcircled{$2$}};
+\filldraw[black, fill=black] (axis cs: 5.64, 311.848) circle (1mm);
+\node[anchor=south east] at (axis cs: 2.096, 311.848) {\pgfcircled{$3$}};
+\filldraw[black, fill=black] (axis cs: 2.096, 311.848) circle (1mm);
+\node[anchor=north east] at (axis cs: 2.096, 239.562) {\pgfcircled{$4$}};
+\filldraw[black, fill=black] (axis cs: 2.096, 239.562) circle (1mm);
+
+\addplot+[mark=none, domain=2.096:5.64, samples=100,
+pattern=north east lines, draw = gray,
+pattern color=black] coordinates {(2.096,239.652) (5.64,239.562)} \closedcycle;
+\node[fill=white, rounded corners] at (axis cs: 3.8, 215) {$q_{H}$};
+
+\end{axis}
+	\end{tikzpicture}
+	\caption{T-s diagram}
+\end{subfigure}%
+\caption{Kompresszoros hűtőgép expanziós géppel}
+
+\end{figure}
+\pagebreak
+
+Ha a nevezetes pontokban ismertek az állapotjelzők, akkor:
+\begin{itemize}
+	\item a hűtőből elvont hő:\begin{equation*}
+	q_H=h_1-h_4
+	\end{equation*}
+	\item a kompresszor által felhasznált munka:\begin{equation*}
+	w_K=h_2-h_1
+	\end{equation*}
+	\item a körfolyamatokból elvezetett/ a kondenzátorban leadott hő:\begin{equation*}
+	q_K=h_2-h_3
+	\end{equation*}
+	\item a turbina által szolgáltatott munka:\begin{equation*}
+	w_T=h_3-h_4
+	\end{equation*}
+	\item a fajlagos hűtőteljesítmény:\begin{equation*}
+	\varepsilon= \dfrac{q_{H}}{w}=\dfrac{q_H}{w_K-w_T}=\dfrac{h_1-h_4}{h_2-h_1-(h_3-h_4)}
+	\end{equation*}
+	\end{itemize}
+
+\subsubsection{Kompresszoros hűtőgép fojtószeleppel}
+
+\begin{figure}[ht]
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\usetikzlibrary{patterns.meta}
+		\begin{tikzpicture}
+		\draw[step=1cm,ultra thick] (-0.5,0) to (1.4,0) to (1.65,0.4) to (1.9,-0.4) to (2.15,0.4) to (2.4,-0.4) to (2.65,0.4) to (2.9,-0.4) to (3.15,0.4) to (3.4,-0.4) to (3.65,0) to (5,0);
+		\draw[step=1cm,ultra thick,->] (5,0) to (5,2);
+		\draw[step=1cm,ultra thick] (5,2) to (5,4) to (4,3.5) to (4,2.5) to (5,2);
+		\node[anchor=north] at (4.5, 3.25) {$K$}; 
+		\draw[step=1cm,ultra thick,->] (4,3.5) to (4,5.5);
+		\draw[step=1cm,ultra thick] (-0.5,5.5) to (1.25,5.5) to (1.5,5.9) to (1.75,5.1) to (2,5.9) to (2.25,5.1) to (2.5,5.9) to (2.75,5.1) to (3,5.9) to (3.25,5.1) to (3.5,5.5) to (4,5.5);
+		\draw[step=1cm,ultra thick,->] (-0.5,5.5) to (-0.5,3.5);
+		\draw[step=1cm,ultra thick] (-1, 2) rectangle (0, 3.5);
+		\draw[step=1cm,ultra thick,->] (-0.5,2) to (-0.5,0);
+		\draw[ultra thick] (6.5, 3) circle (0.5);
+			\draw[step=1cm,ultra thick,] (-0.5,3.5) to (-1,2);
+			\draw[step=1cm,ultra thick,] (-0.5,3.5) to (0,2);
+		\node[anchor=north] at (6.5, 3.25) {$M$};
+		\draw[step=1cm,ultra thick,->] (6,3) to (5,3);
+		\node[anchor=north] at (5.5, 3.5) {$w_{k}$};
+		\draw[step=1cm,ultra thick] (6.5,5) to (6.5,3.5);
+		\draw[step=1cm,very thick] (6,4.3) to (7,4.6);
+		\draw[step=1c,ultra thick] (1, -1) rectangle (4.05, 1);
+		\draw[step=1c,ultra thick] (1.25, -0.75) rectangle (3.8, 0.75);
+		\draw[step=1cm,ultra thick,->] (2.25,-1.6) to (2.25,-0.15);
+		\node[anchor=north] at (2.55, -1.2) {$q_{H}$};
+		\draw[step=1cm,ultra thick,->] (2.25,6) to (2.25,7.2);
+		\node[anchor=north] at (2.6, 6.65) {$q_{K}$};
+		\node[xshift={0mm}, yshift={-4mm}] at (-0.5, 0) {$\Large\textcircled{\normalsize 4}$};	
+		\node[xshift={0mm}, yshift={-4mm}] at (5, 0) {$\Large\textcircled{\normalsize 1}$};
+		\node[xshift={0mm}, yshift={3mm}] at (4, 5.5) {$\Large\textcircled{\normalsize 2}$};
+		\node[xshift={0mm}, yshift={3mm}] at (-0.5, 5.5) {$\Large\textcircled{\normalsize 3}$};	
+		\fill[pattern=north east lines] (1, -1) rectangle (4.05, -0.75);
+		\fill[pattern=north east lines] (1, -1) rectangle (1.25, 0.75);
+		\fill[pattern=north east lines] (1, 0.75) rectangle (4.05, 1);
+		\fill[pattern=north east lines] (3.8, -0.75) rectangle (4.05, 0.75);
+		\end{tikzpicture}
+		\caption{Kapcsolási vázlat}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+		\begin{tikzpicture}
+
+		% a T-s diagram	(b)
+		\begin{axis}[
+	width=8cm, height=8cm,
+	xmin=0, xmax=9,
+	ymin=195, ymax=475, 
+	axis lines = middle,
+	axis line style={->},
+	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$T \left(\si{\kelvin}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick=\empty,
+	ytick=\empty,
+	]
+	
+	\addplot[thick] table {./j3tv3w/nh3fh.txt};
+	\addplot[ultra thick, dashed, gray] table {./j3tv3w/nh3ib1.txt};
+	\node[anchor=north east] at (axis cs:6.608, 450) {$p_K$};
+	\addplot[ultra thick, dashed, gray] table {./j3tv3w/nh3ib2.txt}; 
+	\node[anchor=north east] at (axis cs:7.920, 450) {$p_H$};
+\addplot[ultra thick,color=black,->] table {./j3tv3w/tsh.txt};
+	\addplot[ultra thick, color=black,->] coordinates {(5.64,239.562)(5.64,311.848)};
+	\addplot[ultra thick, color=black,->] coordinates {(5.64,311.848)(2.096,311.848)};
+	\addplot[ultra thick, color=black,->=] coordinates {(2.696,239.563)(5.64,239.563)};
+	\node[anchor=north west] at (axis cs: 5.64, 239.562) {\pgfcircled{$1$}};
+	\filldraw[black, fill=black] (axis cs: 5.64, 239.562) circle (1mm);
+	\node[anchor=south west] at (axis cs: 5.64, 311.848) {\pgfcircled{$2$}};
+	\filldraw[black, fill=black] (axis cs: 5.64, 311.848) circle (1mm);
+	\node[anchor=south east] at (axis cs: 2.096, 311.848) {\pgfcircled{$3$}};
+	\filldraw[black, fill=black] (axis cs: 2.096, 311.848) circle (1mm);
+	\node[anchor=north east] at (axis cs: 2.696, 239.562) {\pgfcircled{$4^*$}};
+	\filldraw[black, fill=black] (axis cs: 2.696, 239.562) circle (1mm);
+	
+	\addplot+[mark=none, domain=2.692:5.64, samples=100,
+	pattern=north east lines, draw = gray,
+	pattern color=black] coordinates {(2.692,239.652) (5.64,239.562)} \closedcycle;
+	\node[fill=white, rounded corners] at (axis cs: 4.1, 215) {$q_{H}$};
+
+		\end{axis}
+		\end{tikzpicture}
+		\caption{T-s diagram}
+	\end{subfigure}
+	\caption{Kompresszoros hűtőgép fojtószeleppel}
+	
+\end{figure}
+
+A fojtószeleppel szerelt kompresszoros hűtőgép esetében kisebb hőt tudunk elvonni a környezetből, de a kondenzátorban leadott hő és a kompresszor által felhasznált munka változatlan marad.
+
+\begin{itemize}
+	\item a hűtőből elvont hő csökkenése:\begin{equation*}
+		\Delta q_H=h_4^*-h_4=h_3-h_4=w_T
+	\end{equation*}
+	\item a hűtőből elvont hő:\begin{equation*}
+		q_H=h_1-h_4^*=h_1-h_3
+	\end{equation*}
+	\item a fajlagos hűtőteljesítmény:\begin{equation*}
+		\varepsilon= \dfrac{q_{H}}{w}=\dfrac{q_h}{w_K}=\dfrac{h_1-h_3}{h_2-h_1}
+	\end{equation*}
+\end{itemize}
+
+
+\pagebreak
