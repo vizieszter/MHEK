@@ -1,0 +1,179 @@
+\newcommand\pontvastagsag{1 mm} %nevezetes pontok vastagsága
+\section*{Rankine-Clausius}
+\addcontentsline{toc}{section}{Rankine-Clausius}
+Rajzolja le a túlhevítést alkalmazó Rankine–Clausius-körfolyamat kapcsolási vázlatát, a körfolyamatot $T-s$ diagramban, elhanyagolva a tápszivattyú hatását! Jelölje be a munkát ($\omega$) és a kondenzátorban elvont hőt ($q_K$)! Ha mindegyik nevezetes pontban ismertek az állapotjelzők, akkor hogyan számítható a bevitt hő ($q_{BE}$), a munka ($\omega$), a kondenzátorban elvont hő ($q_K$) és a termikus hatásfok ($\eta_T$)?
+\begin{figure}[h]
+	\centering
+	\label{figure:guh7ud-vgtsd}
+	\begin{tikzpicture}
+	% Rács és vágómaszk
+	\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);
+	%\clip (-1.5, -1) rectangle (14.5, 11);
+	
+	% A tengelykeresztet az axis környezet hozza létre
+	\begin{axis}[
+	width=16cm, height=12cm,
+	xmin=0, xmax=10.8,
+	ymin=0, ymax=475, 
+	axis lines = middle,
+	axis line style={->},
+	xlabel=$s \left(\si{\kilo\joule\per\kilogram\kelvin}\right)$, 
+	xlabel style={
+		at=(current axis.right of origin), 
+		anchor=north east
+	}, 
+	ylabel=$T \left(\si{\degreeCelsius}\right)$, 
+	ylabel style={
+		at=(current axis.above origin), 
+		anchor=north east
+	},
+	xtick={1, 2, 3, 4, 5, 6, 7, 8, 9},
+	ytick={100, 200, 300, 400}
+	]
+	
+% T-s diagram
+
+	\addplot[thick] table {./j3gklg/ts.txt};
+	\addplot[blue,ultra thick] table {./j3gklg/1-2.txt};
+	\draw[blue,ultra thick](axis cs:2.618, 230.850)-- (axis cs:6.207, 230.850);
+	\addplot[blue,ultra thick] table {./j3gklg/3-4.txt};
+	\draw [blue,ultra thick](axis cs:6.91718,	467.909)--(axis cs:6.917189, 50.850);
+	\draw [blue,ultra thick](axis cs:6.917189, 50.850)--(axis cs:0.715, 50.850);
+	
+%Számozások	
+\node[anchor=south east] at (axis cs: 0.715, 50.850) {\pgfcircled{$1$}};
+\filldraw[blue, fill=blue] (axis cs: 0.715, 50.850) circle (1mm);
+
+\node[anchor=south east] at (axis cs: 2.618, 230.850) {\pgfcircled{$2$}};
+\filldraw[blue, fill=blue] (axis cs: 2.618, 230.850) circle (1mm);
+
+\node[anchor=south east] at (axis cs: 6.207, 230.850) {\pgfcircled{$3$}};
+\filldraw[blue, fill=blue] (axis cs: 6.207, 230.850) circle (1mm);
+
+\node[anchor=west] at (axis cs:6.91718,	467.909) {\pgfcircled{$4$}};
+\filldraw[blue, fill=blue] (axis cs: 6.91718,	467.909) circle (1mm);
+
+\node[anchor=south west] at (axis cs: 6.917189, 50.850) {\pgfcircled{$5$}};
+\filldraw[blue, fill=blue] (axis cs: 6.917189, 50.850) circle (1mm);
+%Vonalkázás felső
+\addplot [name path = 1-2] table {./j3gklg/1-2.txt};
+\addplot [name path = 3-4] table {./j3gklg/3-4.txt};
+\addplot [name path = egyenes1] coordinates {(6.91718, 50.85) (6.91718, 230.850)};
+\addplot [name path = egyenes2] coordinates {(6.91718, 230.850) (6.91718, 467.909)};
+\addplot[pattern=north west lines] fill between [  of=1-2 and egyenes1,];
+\addplot[pattern=north west lines] fill between [  of=3-4 and egyenes2];
+
+
+% Vonalkázás alsó
+\fill[pattern={north east lines}] (axis cs:0.715, 50.850) rectangle (axis cs:6.917189, 0);
+%Jelölés
+
+\draw[o-] (axis cs:6, 150) -- (axis cs:9, 250) node [ above] {$\omega_{hasznos}$};
+\draw[o-] (axis cs:6.5, 30) -- (axis cs:9, 100) node [ above] {$q_{Elvont}$};
+
+	\end{axis}
+	
+ 
+	
+	
+	\end{tikzpicture}
+	\caption{Víz-gőz $T-s$ diagram}
+\end{figure}
+
+%Kapcsolási rajz
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	\newcommand\COR{1.2}; %korrekciós érték az ábra késsöbbi méreteinek változtatásához
+	\draw[->,thick] (0, 0) -- (4*\COR, 0); %legfelső vonal
+	\draw[->, thick] (4*\COR, 0) -- (4*\COR, -1.5*\COR);
+	\draw[thick] (4*\COR, 0*\COR) -- (4*\COR, -2*\COR); %turbinaba tartó vonal
+	%turbina
+	\draw[thick] (4*\COR, -2*\COR) -- (5*\COR, -2.5*\COR); %turbina
+	\draw[thick] (5*\COR, -2.5*\COR) -- (5*\COR, -1*\COR);
+	\draw[thick] (5*\COR, -1*\COR) -- (4*\COR, -1.5*\COR); %turbina vége
+	\draw[thick] (5*\COR, -2.5*\COR) -- (5*\COR, -4*\COR); %kondenzátorba tartó vonal
+	%turbina T betűje
+	\node[thick] at (4.5*\COR, -1.75*\COR) {T};
+	
+	%kondenzátor
+	\draw[thick] (5*\COR, -4.5*\COR) circle (0.5cm*\COR); %kondenzátor kör
+	\draw[thick] (5.25*\COR, -4.5*\COR) -- (5*\COR,-4.35*\COR); %kondenzátor cikk-cakk
+	\draw[->, thick] (5*\COR, -4.35*\COR) -- (5.9*\COR,-4.1*\COR);
+	\draw[thick] (5.25*\COR, -4.5*\COR) -- (5*\COR, -4.65*\COR);
+	\draw[thick] (5*\COR, -4.65*\COR) -- (5.8*\COR, -4.9*\COR); 
+	%kondenzátor vége
+	\draw[thick] (5*\COR, -5*\COR) -- (5*\COR, -6*\COR);
+	\draw[->,thick] (5*\COR, -6*\COR) -- (0*\COR, -6*\COR);
+	\draw[thick] (0*\COR, -6*\COR) -- (0*\COR, -5*\COR);
+	%kondenzátor S betűje
+	\node[thick] at (6.3*\COR, -4*\COR) {S};
+	%kazán
+	\draw[thick] (-0.5*\COR, -5*\COR) rectangle (0.5*\COR, -3*\COR);
+	\draw[->,thick] (0*\COR, -3*\COR) -- (0*\COR, -2.3*\COR);
+	\draw[thick](0*\COR, -2.3*\COR) -- (0*\COR,-1.8*\COR);
+	%kazán K betűje
+	\node at (0*\COR, -4*\COR) {K};
+	%túlhevítő 
+	\draw[thick] (0*\COR,-1.8*\COR) -- (-0.2*\COR, -1.7*\COR);
+	\draw[thick] (-0.2*\COR, -1.7*\COR) -- (0.2*\COR, -1.5*\COR);
+	\draw[thick] (0.2*\COR, -1.5*\COR) -- (-0.2*\COR, -1.3*\COR);
+	\draw[thick] (-0.2*\COR, -1.3*\COR) -- (0.2*\COR, -1.1*\COR);
+	\draw[thick] (0.2*\COR, -1.1*\COR) -- (-0.2*\COR, -0.9*\COR);
+	\draw[thick] (-0.2*\COR, -0.9*\COR) -- (0.2*\COR, -0.7*\COR);
+	\draw[thick] (0.2*\COR, -0.7*\COR) -- (-0.2*\COR, -0.5*\COR);
+	\draw[thick] (-0.2*\COR, -0.5*\COR) -- (0.2*\COR, -0.3*\COR);
+	\draw[thick] (0.2*\COR, -0.3*\COR) -- (0*\COR, -0.2*\COR);
+	\draw[thick] (0*\COR, -0.2*\COR) -- (0*\COR, 0*\COR);
+	
+
+	
+	%túlhevítő TH betűje
+		\node[thick] at (1*\COR, -0.5*\COR) {TH};
+	%gép
+	\draw[thick] (5*\COR, -1.75*\COR) -- (6.5*\COR, -1.75*\COR);
+	\draw[thick] (7*\COR, -1.75*\COR) circle (0.5cm*\COR);
+	\draw[thick] (7*\COR, -1.25*\COR) -- (7*\COR, 0*\COR);
+	\draw[thick] (6.6*\COR, -1*\COR) -- (7.4*\COR, -0.75*\COR);
+	\draw[thick] (6.6*\COR, -0.75*\COR) -- (7.4*\COR, -0.5*\COR);
+	\draw[thick] (6.6*\COR, -0.5*\COR) -- (7.4*\COR, -0.25*\COR);
+	%gép betűje
+	\node at (7*\COR, -1.75*\COR) {G};
+	%pontok megrajzolása
+	%1-es pont
+	\draw[thick, fill = black] (0*\COR, -5.5*\COR) circle (\pontvastagsag*\COR);
+	\node[circle, draw, inner sep = 1mm, thick] at (-0.5*\COR, -5.5*\COR) {1};
+	%2-es pont
+	\node[circle, draw, inner sep = 1mm, thick] at (1*\COR, -4*\COR) {2};
+	%3-as pont
+	\node[circle, draw, inner sep = 1mm, thick] at (1*\COR, -1*\COR) {3};
+	%4-es pont
+	\draw[thick, fill = black] (4*\COR, 0*\COR) circle (\pontvastagsag*\COR);
+	\node[circle, draw, inner sep = 1mm, thick] at (4.5*\COR, 0*\COR) {4};
+	%5-es pont
+	\draw[thick, fill = black] (5*\COR, -3.2*\COR) circle (\pontvastagsag*\COR);
+	\node[circle, draw, inner sep = 1mm, thick] at (5.5*\COR, -3.2*\COR) {5};
+	%nyomaték megrajzolása
+	\draw [->, thick] (5.5*\COR, -2.1*\COR) arc [radius = 0.45*\COR, start angle = -130, end angle = 130];
+	%q_EL bejelölése
+	\draw[->] (5.7*\COR, -4.5*\COR) -- (7*\COR, -4.5*\COR) node [midway, below] {$q_{EL}$};
+	%q_BE bejelölése
+	\draw[->] (-2*\COR, -4*\COR) -- (-0.7*\COR, -4*\COR) node [midway, above] {$q_{BE}$};
+	%munka jelölése
+	\node at (5.9*\COR, -1*\COR) {$w$};
+	
+	\end{tikzpicture}
+	\caption{A túlhevítést alkalmazó körfolyamat ábrája}
+
+\end{figure}
+\begin{equation*}
+	(q_{1-_4} = h_4 - h_1;
+	\quad
+	-q_{5-1} = h_5 - h_1;
+	\quad
+	\omega_t = h_4 - h_5;
+	\quad
+	\eta_T = \dfrac{\omega_t} {q_{BE}} = \dfrac{h_4-h_5} {h_4-h_1};
+\end{equation*}
+
