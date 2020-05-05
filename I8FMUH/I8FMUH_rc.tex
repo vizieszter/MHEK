@@ -1,11 +1,20 @@
 \newcommand\pontvastagsag{1 mm} %nevezetes pontok vastagsága
 
 \section*{Túlhevítés nélküli Rankine-Clausius-körfolyamat}
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Név & Rupert Balázs \\ 
+	\hline
+	Szak & Gépészmérnöki alapszak\\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
 %körfolyamat rajza
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}
-		\newcommand\COR{1.2}; %korrekciós érték az ábra késsöbbi méreteinek változtatásához
+		\newcommand\COR{1}; %korrekciós érték az ábra késsöbbi méreteinek változtatásához
 		\draw[thick] (0, 0) -- (4*\COR, 0); %legfelső vonal
 		\draw[->, thick] (4*\COR, 0) -- (4*\COR, -1.5*\COR);
 		\draw[thick] (4*\COR, 0*\COR) -- (4*\COR, -2*\COR); %turbinaba tartó vonal
@@ -15,7 +24,7 @@
 		\draw[thick] (5*\COR, -1*\COR) -- (4*\COR, -1.5*\COR); %turbina vége
 		\draw[thick] (5*\COR, -2.5*\COR) -- (5*\COR, -4*\COR); %kondenzátorba tartó vonal
 		%turbina T betűje
-		\node[thick] at (4.5*\COR, -1.75*\COR) {T};
+		\node[thick] at (3.9*\COR, -2.5*\COR) {T};
 		
 		%kondenzátor
 		\draw[thick] (5*\COR, -4.5*\COR) circle (0.5cm*\COR); %kondenzátor kör
@@ -36,9 +45,9 @@
 		\draw[thick] (5*\COR, -1.75*\COR) -- (6.5*\COR, -1.75*\COR);
 		\draw[thick] (7*\COR, -1.75*\COR) circle (0.5cm*\COR);
 		\draw[thick] (7*\COR, -1.25*\COR) -- (7*\COR, 0*\COR);
-		\draw[thick] (6.6*\COR, -1*\COR) -- (7.4*\COR, -0.75*\COR);
-		\draw[thick] (6.6*\COR, -0.75*\COR) -- (7.4*\COR, -0.5*\COR);
-		\draw[thick] (6.6*\COR, -0.5*\COR) -- (7.4*\COR, -0.25*\COR);
+		\draw[thick] (6.66*\COR, -1*\COR) -- (7.33*\COR, -0.33*\COR);
+		\draw[thick] (6.66*\COR, -0.85*\COR) -- (7.33*\COR, -0.19*\COR);
+		\draw[thick] (6.66*\COR, -0.7*\COR) -- (7.33*\COR, -0.04*\COR);
 		%gép betűje
 		\node at (7*\COR, -1.75*\COR) {G};
 		%pontok megrajzolása
@@ -56,7 +65,7 @@
 		%nyomaték megrajzolása
 		\draw [->, thick] (5.5*\COR, -2.1*\COR) arc [radius = 0.45*\COR, start angle = -130, end angle = 130];
 		%q_EL bejelölése
-		\draw[->] (5.7*\COR, -4.5*\COR) -- (7*\COR, -4.5*\COR) node [midway, below] {$q_{EL}$};
+		\draw[->] (5.7*\COR, -4.5*\COR) -- (7*\COR, -4.5*\COR) node [midway, below] {$q_K$};
 		%q_BE bejelölése
 		\draw[->] (-2*\COR, -3*\COR) -- (-0.7*\COR, -3*\COR) node [midway, above] {$q_{BE}$};
 		%munka jelölése
@@ -67,7 +76,7 @@
 \end{figure}
 
 %diagram rajza
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
 		\newcommand\kicsinyites{0.7};
@@ -128,13 +137,15 @@
 	\end{equation}
 \paragraph{Kondenzátorban elvont hő}
 	\begin{equation}
-		q_{EL} = - q_{4,1} = h_4 - h_1
+		q_K = - q_{4,1} = h_4 - h_1
 	\end{equation}
-\paragraph{Munka számítása}
+\paragraph{Munka számítása}\mbox{}\\
+A turbinából kivehető munka értéke.
 	\begin{equation}
 		w_t = w_{t_{3,4}} = h_3-h_4
 	\end{equation}
-\paragraph{Termikus hatásfok}
+\paragraph{Termikus hatásfok}\mbox{}\\
+A termikus hatásfok megegyezik a kivett munka, és a bevezetett hő hányadosával. Célunk, hogy ez az érték minél nagyobb legyen, mert akkor a veszteségünk arányosan kevesebb.
 	\begin{equation}
 		\eta_T = \frac{w}{q_{BE}} = \frac{w_t}{q_{BE}}
 	\end{equation}
