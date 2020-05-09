@@ -1,10 +1,20 @@
-\newcommand\pontvastagsag{1 mm} %nevezetes pontok vastagsága
+\begin{tabular}{ | p{2cm} | p{14cm} | } 
+	\hline
+	Név & Albert Botond Miksa \\ 
+	\hline
+	Szak & Gépész mérnök alapszak  \\ 
+	\hline
+	Félév & 2019/2020 II. (tavaszi) félév \\ 
+	\hline
+\end{tabular}
+
 \section*{A túlhevítést alkalmazó Rankine--Clausius-körfolyamat}
 \addcontentsline{toc}{section}{A túlhevítést alkalmazó Rankine--Clausius-körfolyamat}
+
 Rajzolja le a túlhevítést alkalmazó Rankine–Clausius-körfolyamat kapcsolási vázlatát, a körfolyamatot $T-s$ diagramban, elhanyagolva a tápszivattyú hatását! Jelölje be a munkát ($w$) és a kondenzátorban elvont hőt ($q_K$)! Ha mindegyik nevezetes pontban ismertek az állapotjelzők, akkor hogyan számítható a bevitt hő ($q_{BE}$), a munka ($w$), a kondenzátorban elvont hő ($q_K$) és a termikus hatásfok ($\eta_T$)?
 \begin{figure}[h]
 	\centering
-	\label{figure:guh7ud-vgtsd}
+	\label{figure:j3gklg-vgtsd}
 	\begin{tikzpicture}
 	% Rács és vágómaszk
 	%\draw[step=1cm, gray, very thin] (-1.5, -1) grid (14.5, 11);
@@ -34,26 +44,27 @@ Rajzolja le a túlhevítést alkalmazó Rankine–Clausius-körfolyamat kapcsol�
 % T-s diagram
 
 	\addplot[thick] table {./j3gklg/ts.txt};
-	\addplot[blue,ultra thick,mid arrow=blue] table {./j3gklg/1-2.txt};
-	\draw[blue,ultra thick,mid arrow=blue](axis cs:2.618, 230.850)-- (axis cs:6.207, 230.850);
-	\addplot[blue,ultra thick,mid arrow=blue] table {./j3gklg/3-4.txt};
-	\draw [blue,ultra thick,mid arrow=blue](axis cs:6.91718,	467.909)--(axis cs:6.917189, 50.850);
-	\draw [blue,ultra thick,mid arrow=blue](axis cs:6.917189, 50.850)--(axis cs:0.715, 50.850);
+	\addplot[ultra thick] table {./j3gklg/1-2.txt};
+	\draw[ultra thick](axis cs:2.618, 230.850)-- (axis cs:6.207, 230.850);
+	\addplot[ultra thick] table {./j3gklg/3-4.txt};
+	\draw [ultra thick](axis cs:6.91718,	467.909)--(axis cs:6.917189, 50.850);
+	\draw [ultra thick](axis cs:6.917189, 50.850)--(axis cs:0.715, 50.850);
 	
 %Számozások	
-\node[anchor=south east] at (axis cs: 0.715, 50.850) {\pgfcircled{$1$}};
+\node[circle, draw, inner sep = 1mm, thick] at (axis cs: 0.515, 80.850) {1};
+
 \filldraw[blue, fill=blue] (axis cs: 0.715, 50.850) circle (1mm);
 
-\node[anchor=south east] at (axis cs: 2.618, 230.850) {\pgfcircled{$2$}};
+\node[circle, draw, inner sep = 1mm, thick] at (axis cs: 2.4, 250) {2};
 \filldraw[blue, fill=blue] (axis cs: 2.618, 230.850) circle (1mm);
 
-\node[anchor=south east] at (axis cs: 6.207, 230.850) {\pgfcircled{$3$}};
+\node[circle, draw, inner sep = 1mm, thick] at (axis cs: 5.7, 260) {3};
 \filldraw[blue, fill=blue] (axis cs: 6.207, 230.850) circle (1mm);
 
-\node[anchor=west] at (axis cs:6.91718,	467.909) {\pgfcircled{$4$}};
+\node[circle, draw, inner sep = 1mm, thick] at (axis cs: 7.4, 467) {4};
 \filldraw[blue, fill=blue] (axis cs: 6.91718,	467.909) circle (1mm);
 
-\node[anchor=south west] at (axis cs: 6.917189, 50.850) {\pgfcircled{$5$}};
+\node[circle, draw, inner sep = 1mm, thick] at (axis cs: 7.25, 80) {5};
 \filldraw[blue, fill=blue] (axis cs: 6.917189, 50.850) circle (1mm);
 %Vonalkázás felső
 \addplot [name path = 1-2] table {./j3gklg/1-2.txt};
@@ -71,7 +82,15 @@ Rajzolja le a túlhevítést alkalmazó Rankine–Clausius-körfolyamat kapcsol�
 \draw[o-] (axis cs:6, 150) -- (axis cs:9, 250) node [ above] {$w$};
 \draw[o-] (axis cs:6.5, 30) -- (axis cs:9, 100) node [ above] {$q_{K}$};
 
+%Fekete vonalak eltűntetése 
+\addplot[thick] table {./j3gklg/ts.txt};
+\addplot[blue,ultra thick,mid arrow=blue] table {./j3gklg/1-2.txt};
+\draw[blue,ultra thick,mid arrow=blue](axis cs:2.618, 230.850)-- (axis cs:6.207, 230.850);
+\addplot[blue,ultra thick,mid arrow=blue] table {./j3gklg/3-4.txt};
+\draw [blue,ultra thick,mid arrow=blue](axis cs:6.91718,	467.909)--(axis cs:6.917189, 50.850);
+\draw [blue,ultra thick,mid arrow=blue](axis cs:6.917189, 50.850)--(axis cs:0.715, 50.850);
 	\end{axis}
+
 	
  
 	
@@ -80,9 +99,10 @@ Rajzolja le a túlhevítést alkalmazó Rankine–Clausius-körfolyamat kapcsol�
 	\caption{Rankine--Clausius-körfolymat ábrája víz-gőz $T-s$ diagramban}
 \end{figure}
 
-%Kapcsolási rajz
+%Kapcsolási vázlat
 
 \begin{figure}[h]
+	\pgfmathsetmacro{\pontvastagsag}{0.1} %nevezetes pontok vastagsága
 	\centering
 	\begin{tikzpicture}
 	\newcommand\COR{1.2}; %korrekciós érték az ábra késsöbbi méreteinek változtatásához
@@ -130,7 +150,7 @@ Rajzolja le a túlhevítést alkalmazó Rankine–Clausius-körfolyamat kapcsol�
 
 	
 	%túlhevítő TH betűje
-		\node[thick] at (1*\COR, -1*\COR) {TH};
+	\node[thick] at (1*\COR, -1*\COR) {TH};
 	%gép
 	\draw[thick] (5*\COR, -1.75*\COR) -- (6.5*\COR, -1.75*\COR);
 	\draw[thick] (7*\COR, -1.75*\COR) circle (0.5cm*\COR);
@@ -165,30 +185,75 @@ Rajzolja le a túlhevítést alkalmazó Rankine–Clausius-körfolyamat kapcsol�
 	\node at (5.9*\COR, -1*\COR) {$w$};
 	
 	\end{tikzpicture}
-	\caption{A túlhevítést alkalmazó körfolyamat ábrája}
+	\caption{A túlhevítést alkalmazó körfolyamat kapcsolási vázlata}
 
 \end{figure}
+\pagebreak
+
 \begin{equation*}
-	(q_{1-4} = h_4 - h_1;
+	q_{1-4} = h_4 - h_1,
 	\quad
-	q_{K} = h_5 - h_1;
+	q_{K} = h_5 - h_1,
 	\quad
-	w_t = h_4 - h_5;
+	w_t = h_4 - h_5,
 	\quad
-	\eta_T = \dfrac{w_t} {q_{BE}} = \dfrac{h_4-h_5} {h_4-h_1});
+	\eta_T = \dfrac{w_t} {q_{BE}} = \dfrac{h_4-h_5} {h_4-h_1}
 \end{equation*}
-Az $1-2$ szakasz adiabatikus hőközlés \\
-A $2-3$ szakasz izobár hőközlés\\
-A $3-4$ szakasz izobár hőközlés \\
+A $1-3$ szakasz izobár hőközlés\\
+A $3-4$ szakasz izobár hőközlés (túlhevítés)\\
 A $4-5$ adiabatikus expanzió\\
 Az $5-1$ szakasz izoterm hőelvonás\\
 
-$q_{1-4}$ =  ($q_{BE}$)\\
-Az $1-4$ szakasz izobár, és állandó nyomás esetén az első főtétel adott alakja érvényes,azaz az entalpiaváltozás megegyezik a hő megváltozásával állandó nyomáson.\\
-$q_K$ = (elvont hő)\\
-Az $5-1$ szakaszon végbemenő izoterm hőelvonás miatt az első főtétel adott alakja érvényes, ebből következik a számítási módja is. \\
-$w_t$ = ( Munka)\\
+A termodinamika első főtétele az energiamegmaradás törvénye.\\
+Ez zárt, nyugvó rendszerre: $\Delta$$U=Q+W$ \\
+azaz a rendszer belső energiájának változását hőközléssel/elvonással, illetve fizikai munkával tudjuk változtatni.\\
+Ez differenciál alakban is felírható a törvény\\
+\begin{equation*}
+dU=\delta Q+ \delta W
+\end{equation*} \\
+ahol a belső energiát (állapotjelző) deriválhatjuk, míg az útfüggő mennyiségeknél csak a véges differenciákat vesszük.\\
+Entalpia: térfogati munka + belső energia, azaz\\
+\begin{equation*}
+H=U+pV
+\end{equation*}
+Ez kis változásokra
+\begin{equation*}
+dH=dU+pdV+Vdp=\delta Q+\delta W_{fiz} +pdV+Vdp=\delta Q-pdV+Vdp=\delta Q+Vdp=\delta Q+\delta W_{tech}
+\end{equation*}\\
+$q_{1-4}$ =  $q_{BE}$\\
+$dH = \delta Q$ \\
+Az $1-4$ szakasz izobár, és állandó nyomás esetén az első főtétel adott alakja érvényes. Állandó nyomáson ($dp=0$ esetben) a bevitt hő megegyezik az entalpia változással.\\
+$q_K$ = elvont hő\\
+Az $5-1$ szakaszon végbemenő izoterm hőelvonásból következik, hogy A $T$ hőmérséklet állandó, vagyis $pV$ is állandó.A gáz belső energiája változatlan, így a gázzal közölt hő teljes egészében a térfogati munkára
+fordítódik: 
+\begin{equation*}
+Q=W=\int\displaylimits_{V_1}^{V_2}p\dif V=\int\displaylimits_{V_1}^{V_2}\dfrac {p_1V_1}{V}\dif V=p_1V_1\ln{\dfrac{V_2}{V_1}}=p_1V_1\ln{\dfrac{p_1}{p_2}}
+\end{equation*}
+
+$w_t$ =  Munka\\
 Állandó nyomáson ez megegyezik a munkára felhasználható belső
 energiával, illetve az állandó nyomáson bevitt hővel.\\
-$\eta_T$ = ( Termikus hatásfok)\\
-A hasznos munka ($w$) és a bevitt hőmennyiség ($q_{BE}$) hányadosa
+$\eta_T$ =  Termikus hatásfok\\
+A hasznos munka ($w$) és a bevitt hőmennyiség ($q_{BE}$) hányadosa.\\
+Állapotjelzők:\\
+\begin{tabular}{ | p{4cm} | p{3cm} | p{3cm} | } 
+	\hline
+\centering	Név &\centering Jelölés & Mértékegység \\ 
+	\hline
+
+\centering	Belső energia &\centering $U$ & $1\si{\joule=1\N\meter}$ \\ 
+	\hline
+\centering	Entalpia &\centering $H$ & $1\si{\joule=1\N\meter}$ \\ 
+	\hline
+\centering	Moláris belső entrópia &\centering $s$ & $\si{\kilo\joule\per\kilogram\kelvin}$ \\ 
+	\hline
+\centering	Moláris belső energia &\centering $u$ & $\si{\kilo\joule\per\kilogram\kelvin}$ \\ 
+	\hline
+\centering	Moláris entalpia &\centering $h$ & $\si{\kilo\joule\per\kilogram\kelvin}$ \\ 
+	\hline
+\centering	Nyomás &\centering $p$ & $1\si{\Pa=1\dfrac{\N}{\m^2}}$ \\ 
+	\hline
+\centering	Hőmérséklet &\centering $T$ & $1\si{\celsius={274.15}\kelvin}$ \\ 
+	\hline
+\end{tabular}
+\pagebreak
