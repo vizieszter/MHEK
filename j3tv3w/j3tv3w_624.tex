@@ -118,7 +118,7 @@ pattern color=black] coordinates {(2.096,239.652) (5.64,239.562)} \closedcycle;
 \end{figure}
 \pagebreak
 
-Ha a nevezetes pontokban ismertek az állapotjelzők, akkor:
+A hűtőgépet hidegfejlesztés ($q_H$) céljából üzemeltetjük, ami felírható az elpárologtatóból távozó és oda belépő hűtőközeg entalpiakülönbségéből. A kompresszorban munkabefektetéssel sűrítjük össze a hűtőközeget.Ez az egyetlen munkabefektetés az egész ciklus során.
 \begin{itemize}
 	\item a hűtőből elvont hő:\begin{equation*}
 	q_H=h_1-h_4
@@ -129,13 +129,17 @@ Ha a nevezetes pontokban ismertek az állapotjelzők, akkor:
 	\item a körfolyamatokból elvezetett/ a kondenzátorban leadott hő:\begin{equation*}
 	q_K=h_2-h_3
 	\end{equation*}
-	\item a turbina által szolgáltatott munka:\begin{equation*}
-	w_T=h_3-h_4
+\end{itemize}
+A turbina nagy előnye, hogy működés közben a befektetett munka egy része visszanyerhető, így maximalizálható a fajlagos hűtőteljesítmény is.
+\begin{itemize}
+		\item a turbina által szolgáltatott munka:\begin{equation*}
+		w_T=h_3-h_4
 	\end{equation*}
 	\item a fajlagos hűtőteljesítmény:\begin{equation*}
-	\varepsilon= \dfrac{q_{H}}{w}=\dfrac{q_H}{w_K-w_T}=\dfrac{h_1-h_4}{h_2-h_1-(h_3-h_4)}
+		\varepsilon= \dfrac{q_{H}}{w}=\dfrac{q_H}{w_K-w_T}=\dfrac{h_1-h_4}{h_2-h_1-(h_3-h_4)}
 	\end{equation*}
-	\end{itemize}
+\end{itemize} 
+
 
 \subsubsection{Kompresszoros hűtőgép fojtószeleppel}
 
@@ -234,7 +238,7 @@ Ha a nevezetes pontokban ismertek az állapotjelzők, akkor:
 	
 \end{figure}
 
-A fojtószeleppel szerelt kompresszoros hűtőgép esetében kisebb hőt tudunk elvonni a környezetből, de a kondenzátorban leadott hő és a kompresszor által felhasznált munka változatlan marad.
+A fojtás izentalpiás folyamat, tehát a kondenzátorból kifolyó hűtőközeg entalpiája fojtás előtt ($h_3$) és után ($h_4^*$) ugyanaz. A T-s diagramból rögtön látszik, hogy a hűtés ($q_H$) most kisebb, hiszen elesünk a visszanyert munkarésztől ($w_T$).
 
 \begin{itemize}
 	\item a hűtőből elvont hő csökkenése:\begin{equation*}
@@ -243,10 +247,12 @@ A fojtószeleppel szerelt kompresszoros hűtőgép esetében kisebb hőt tudunk 
 	\item a hűtőből elvont hő:\begin{equation*}
 		q_H=h_1-h_4^*=h_1-h_3
 	\end{equation*}
-	\item a fajlagos hűtőteljesítmény:\begin{equation*}
-		\varepsilon= \dfrac{q_{H}}{w}=\dfrac{q_h}{w_K}=\dfrac{h_1-h_3}{h_2-h_1}
-	\end{equation*}
 \end{itemize}
+A fajlagos hűtőteljesítmény($\varepsilon$)  mindig a nyert hideg ($q_H$) és a munka ($w$) viszonya. Ebben az esetben a munka ($w$) megegyezik a kompresszor által felhasznált munkával ($w_K$).
+\begin{equation*}
+	\varepsilon= \dfrac{q_{H}}{w}=\dfrac{q_h}{w_K}=\dfrac{h_1-h_3}{h_2-h_1}
+\end{equation*}
+A fojtószeleppel szerelt kompresszoros hűtőgép esetében kisebb hőt tudunk elvonni a környezetből, de a kondenzátorban leadott hő és a kompresszor által felhasznált munka változatlan marad.
 
 
 \pagebreak
